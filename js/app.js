@@ -157,8 +157,13 @@ var Location = function(location) {
         self.content = '<article><h4>' + self.name + '</h4>' +
         '<p>' + self.category + '</p>' +
         '<p><a href="' + self.URL + '">' + self.URL + '</a></p>';
-        if (self.street || self.city) {
-            self.content += '<p>' + self.street + ', ' + self.city + '</p>';
+
+        if (self.street) {
+            self.content += '<p>' + self.street;
+            if (self.city) {
+                self.content += ', ' + self.city;
+            }
+            self.content += '</p>';
         }
 
         if (self.phone) {
@@ -178,6 +183,10 @@ var Location = function(location) {
         setTimeout(function() {
             self.marker.setAnimation(null);
         }, 2000);
+    };
+
+    this.openInfoWindow = function(location) {
+        new google.maps.event.trigger(location.marker, 'click');
     };
 
     this.toggleFavourite = function(location) {

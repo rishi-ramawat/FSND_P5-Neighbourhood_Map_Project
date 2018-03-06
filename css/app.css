@@ -4,7 +4,7 @@
 
 html,
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Aller', serif;
     height: 100%;
     margin: 0;
     padding: 0;
@@ -48,13 +48,14 @@ ul {
 
 .container {
     height: 100%;
+    width: 100%;
     position: relative;
 }
 
 #map {
     bottom: 0px;
     height: 100%;
-    left: 300px;
+    left: 22%;
     position: absolute;
     right: 0px;
 }
@@ -67,7 +68,7 @@ ul {
     line-height: 35px;
     padding: 10px 10px 30px 10px;
     text-align: left;
-    width: 300px;
+    width: 22%;
 }
 
 .search {
@@ -121,3 +122,15 @@ ul {
         width: auto;
     }
 }
+
+@media screen and (max-width: 768px) {
+
+    .options-box {
+        width: 150px;
+    }
+
+    #map {
+        left: 150px;
+    }
+}
+
