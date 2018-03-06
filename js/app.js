@@ -1,3 +1,5 @@
+"use strict";
+
 var map;
 var clientID = "CAOMRZA30RBJAL3WNRKF5OHRXM1DWM2SXOV41QJK1RZ1UXJG";
 var clientSecret = "P5H3TR025KU1FVLMAUE4GYVPDSTD2HWYPX0DXZSTVA3WQMWW";
@@ -128,7 +130,7 @@ var Location = function(location) {
     });
 
     this.showMarker = ko.computed(function () {
-        if (self.visible() == false) {
+        if (self.visible() === false) {
             self.marker.setMap(null);
 
             return false;
@@ -179,7 +181,7 @@ var Location = function(location) {
     this.toggleFavourite = function(location) {
         location.favourite(!location.favourite());
     };
-}
+};
 
 var ViewModel = function() {
     var self = this;
