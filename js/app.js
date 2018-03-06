@@ -1,8 +1,10 @@
-"use strict";
-
 var map;
 var clientID = "CAOMRZA30RBJAL3WNRKF5OHRXM1DWM2SXOV41QJK1RZ1UXJG";
 var clientSecret = "P5H3TR025KU1FVLMAUE4GYVPDSTD2HWYPX0DXZSTVA3WQMWW";
+
+/* globals google: false */
+/* globals ko: false */
+/* globals jQuery: false */
 
 var initialLocations = [
     {
