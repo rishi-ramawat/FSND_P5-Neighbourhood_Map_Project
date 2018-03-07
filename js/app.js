@@ -1,6 +1,7 @@
 var map;
 var clientID = "CAOMRZA30RBJAL3WNRKF5OHRXM1DWM2SXOV41QJK1RZ1UXJG";
 var clientSecret = "P5H3TR025KU1FVLMAUE4GYVPDSTD2HWYPX0DXZSTVA3WQMWW";
+var infoWindow;
 
 /* globals google: false */
 /* globals ko: false */
@@ -149,9 +150,9 @@ var Location = function(location) {
         '<p><a href="tel:' + self.phone + '">' + self.phone + '</a></p>' +
         '</article>';
 
-    this.infoWindow = new google.maps.InfoWindow({content: this.content});
-
     this.marker.addListener('click', function() {
+        infoWindow.close();
+
         var streetViewUrl = 'https://maps.googleapis.com/maps/api/streetview?size=600x300&location=' + self.lat + ',' + self.lng + '&key=AIzaSyDpNhBg_oGC78A7BAP-aYJ3lKKyfI2AeuY';
 
         self.content = '<article><h4>' + self.name + '</h4>' +
@@ -172,8 +173,8 @@ var Location = function(location) {
         self.content += '<p><img class="street-view-image" src="' + streetViewUrl + '"></p>';
         self.content += '</article>';
 
-        self.infoWindow.setContent(self.content);
-        self.infoWindow.open(map, self.marker);
+        infoWindow.setContent(self.content);
+        infoWindow.open(map, self.marker);
 
         self.bounceMarker();
     });
@@ -236,6 +237,7 @@ function initMap() {
         zoom: 12,
         center: {lat:17.285, lng:78.486}
     });
+    infoWindow = new google.maps.InfoWindow({});
 
     ko.applyBindings(new ViewModel());
 }
